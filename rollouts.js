@@ -39,32 +39,30 @@ function renderGallery(gallery, entries) {
     const frame = card.querySelector(".frame");
     if (src) {
       const video = document.createElement("video");
+      video.muted = true;
+      video.defaultMuted = true;
+      video.autoplay = true;
       video.playsInline = true;
-      video.preload = poster ? "none" : "metadata";
+      video.controls = true;
       if (poster) video.poster = poster;
       video.setAttribute("aria-label", label);
-      if (outcome) {
-        frame.dataset.outcome = outcome;
-        video.addEventListener("ended", () => frame.classList.add("finished"));
-        const clearResult = () => frame.classList.remove("finished");
-        video.addEventListener("play", clearResult);
-        video.addEventListener("seeking", clearResult);
-      }
-      video.src = src;
-      const play = document.createElement("button");
-      play.type = "button";
-      play.className = "play-button";
-      play.setAttribute("aria-label", "Play " + label);
-      play.addEventListener("click", () => {
-        video.controls = true;
-        video.play().then(() => {
-          video.focus({ preventScroll: true });
-          play.hidden = true;
-        }).catch(() => {
-          video.controls = false;
-        });
+      if (outcome) frame.dataset.outcome = outcome;
+
+      let replayTimer;
+      const clearResult = () => {
+        clearTimeout(replayTimer);
+        frame.classList.remove("finished");
+      };
+      video.addEventListener("play", clearResult);
+      video.addEventListener("seeking", clearResult);
+      video.addEventListener("ended", () => {
+        frame.classList.add("finished");
+        replayTimer = setTimeout(() => {
+          if (video.ended) video.play().catch(() => {});
+        }, 1500);
       });
-      frame.append(video, play);
+      video.src = src;
+      frame.append(video);
     }
     gallery.append(card);
   }
