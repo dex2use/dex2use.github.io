@@ -45,11 +45,11 @@ h2 { font-size: 1.125rem; font-weight: 600; margin: 1.2rem 0 1rem; letter-spacin
   content: "";
   position: absolute;
   inset: 0;
-  border: var(--frame-width, 2px) solid var(--frame-color, transparent);
+  border: 4px solid var(--frame-color, transparent);
   border-radius: inherit;
   pointer-events: none;
 }
-.frame.finished[data-outcome="success"] { --frame-color: #27844d; --frame-width: 4px; }
+.frame.finished[data-outcome="success"] { --frame-color: #27844d; }
 .frame.finished[data-outcome="failure"] { --frame-color: #bf3030; }
 .frame video { display: block; width: 100%; height: 100%; object-fit: contain; background: transparent; }
 figcaption {
