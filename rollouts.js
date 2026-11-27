@@ -1,11 +1,11 @@
 // Set src to a video path such as "media/trial-1.mp4" when a rollout is ready.
 // Add or remove entries to change the gallery.
 const rollouts = [
-  { label: "Rollout 1 · Success", src: "media/rollout-01.mp4", poster: "media/rollout-01.jpg", outcome: "success" },
-  { label: "Rollout 2 · Success", src: "media/rollout-02.mp4", poster: "media/rollout-02.jpg", outcome: "success" },
-  { label: "Rollout 3 · Success", src: "media/rollout-03.mp4", poster: "media/rollout-03.jpg", outcome: "success" },
-  { label: "Rollout 4 · Success", src: "media/rollout-04.mp4", poster: "media/rollout-04.jpg", outcome: "success" },
-  { label: "Rollout 5 · Failure (drop)", src: "media/rollout-05.mp4", poster: "media/rollout-05.jpg", outcome: "failure" },
+  { label: "Rollout 1 · Success", src: "media/rollout-01.mp4", poster: "media/rollout-01.jpg" },
+  { label: "Rollout 2 · Success", src: "media/rollout-02.mp4", poster: "media/rollout-02.jpg" },
+  { label: "Rollout 3 · Success", src: "media/rollout-03.mp4", poster: "media/rollout-03.jpg" },
+  { label: "Rollout 4 · Success", src: "media/rollout-04.mp4", poster: "media/rollout-04.jpg" },
+  { label: "Rollout 5 · Failure (drop)", src: "media/rollout-05.mp4", poster: "media/rollout-05.jpg" },
 ];
 
 const additionalRollouts = [
@@ -26,11 +26,10 @@ const additionalRollouts = [
 const template = document.querySelector("#rollout-template");
 
 function renderGallery(gallery, entries) {
-  for (const { label, src, poster, outcome } of entries) {
+  for (const { label, src, poster } of entries) {
     const card = template.content.cloneNode(true);
     card.querySelector("figcaption").textContent = label;
     const frame = card.querySelector(".frame");
-    if (outcome) frame.classList.add(outcome);
     if (src) {
       const video = document.createElement("video");
       video.playsInline = true;
