@@ -14,7 +14,7 @@ h1 {
   font-size: clamp(.8rem, 3.8vw, 2.4rem);
   font-weight: 600;
   letter-spacing: -.045em;
-  line-height: 1.09;
+  line-height: 1.18;
   text-wrap: balance;
 }
 .wordmark, .highlight { color: #012169; }
@@ -23,11 +23,11 @@ h1 {
   text-decoration-thickness: .055em;
   text-underline-offset: .14em;
 }
-header p { margin: 1.4rem 0 0; font-size: 1.15rem; }
+header p { margin: 1.25rem 0 0; font-size: 1.05rem; color: #585d65; }
 main { padding-bottom: 4rem; }
 section { border-top: 1px solid #dedbd9; }
 section + section { margin-top: 2.5rem; }
-h2 { font-size: 1.125rem; font-weight: 600; margin: 1.25rem 0 .75rem; letter-spacing: -.015em; }
+h2 { font-size: 1.125rem; font-weight: 600; margin: 1.2rem 0 1rem; letter-spacing: -.015em; }
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -39,12 +39,12 @@ h2 { font-size: 1.125rem; font-weight: 600; margin: 1.25rem 0 .75rem; letter-spa
   min-width: 0;
   margin: 0;
 }
-.frame { position: relative; aspect-ratio: 16 / 9; background: #f6f6f5; overflow: hidden; }
+.frame { position: relative; aspect-ratio: 16 / 9; background: #f4f5f6; overflow: hidden; }
 .frame[data-outcome]::after {
   content: "";
   position: absolute;
   inset: 0;
-  border: 2px solid var(--frame-color, #a7a7a7);
+  border: 2px solid var(--frame-color, transparent);
   pointer-events: none;
 }
 .frame.finished[data-outcome="success"] { --frame-color: #27844d; }
@@ -73,7 +73,18 @@ h2 { font-size: 1.125rem; font-weight: 600; margin: 1.25rem 0 .75rem; letter-spa
 }
 .play-button:hover { background: rgba(18, 18, 18, .9); }
 .play-button:focus-visible { outline: 3px solid white; outline-offset: 2px; }
-figcaption { margin-top: .55rem; font-size: .94rem; font-weight: 550; }
+figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .15rem .5rem;
+  margin-top: .5rem;
+  font-size: .94rem;
+  font-weight: 550;
+  font-variant-numeric: tabular-nums;
+}
+.result { color: #575d65; font-size: .875rem; font-weight: 400; }
 @media (max-width: 36rem) {
   .gallery { gap: 1rem; }
   .gallery figure { flex-basis: calc((100% - 1rem) / 2); }
