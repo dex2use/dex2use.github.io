@@ -40,12 +40,13 @@ h2 { font-size: 1.125rem; font-weight: 600; margin: 1.2rem 0 1rem; letter-spacin
   min-width: 0;
   margin: 0;
 }
-.frame { position: relative; aspect-ratio: 16 / 9; background: #f4f5f6; overflow: hidden; }
+.frame { position: relative; aspect-ratio: 16 / 9; background: #f4f5f6; border-radius: .6rem; overflow: hidden; }
 .frame[data-outcome]::after {
   content: "";
   position: absolute;
   inset: 0;
   border: 2px solid var(--frame-color, transparent);
+  border-radius: inherit;
   pointer-events: none;
 }
 .frame.finished[data-outcome="success"] { --frame-color: #27844d; }
