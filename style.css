@@ -17,7 +17,12 @@ h1 {
   line-height: 1.09;
   text-wrap: balance;
 }
-h1 span, h1 strong { color: #012169; font-weight: 750; }
+.wordmark, .highlight { color: #012169; }
+.highlight {
+  text-decoration: underline;
+  text-decoration-thickness: .055em;
+  text-underline-offset: .14em;
+}
 header p { margin: 1.4rem 0 0; font-size: 1.15rem; }
 main { padding-bottom: 4rem; }
 section { border-top: 1px solid #dedbd9; }
