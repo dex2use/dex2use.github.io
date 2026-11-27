@@ -39,7 +39,7 @@ h2 { font-size: 1.125rem; font-weight: 600; margin: 1.25rem 0 .75rem; letter-spa
   min-width: 0;
   margin: 0;
 }
-.frame { position: relative; aspect-ratio: 1; background: #f6f6f5; overflow: hidden; }
+.frame { position: relative; aspect-ratio: 16 / 9; background: #f6f6f5; overflow: hidden; }
 .frame video { display: block; width: 100%; height: 100%; object-fit: contain; background: transparent; }
 .play-button {
   position: absolute;
