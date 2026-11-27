@@ -24,6 +24,7 @@ h1 {
   text-underline-offset: .14em;
 }
 header p { margin: 1.25rem 0 0; font-size: 1.05rem; color: #585d65; }
+.playback-note { max-width: 40rem; margin: .85rem auto 0; font-size: .9375rem; line-height: 1.5; text-wrap: balance; }
 main { padding-bottom: 4rem; }
 section { border-top: 1px solid #dedbd9; }
 section + section { margin-top: 2.5rem; }
